@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>MySalery Pro — Salary Calculator</title>
+  <meta name="description" content="MySalery Pro — A simple app to calculate salary and overtime. Click below to view the Privacy Policy." />
+  <style>
+    :root {
+      --bg:#0f1724;
+      --card:#0b1220;
+      --accent1:#00c6ff;
+      --accent2:#0072ff;
+      --muted:#b8c6db;
+      --glass:rgba(255,255,255,0.03);
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body {
+      margin:0;
+      font-family: Inter, "Segoe UI", Tahoma, Arial, sans-serif;
+      background:
+        radial-gradient(1200px 400px at 10% 10%, rgba(0,114,255,0.08), transparent 6%),
+        radial-gradient(900px 300px at 95% 90%, rgba(0,198,255,0.06), transparent 6%),
+        var(--bg);
+      color:#e6eef8;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:32px;
+    }
+    .card {
+      width:100%;
+      max-width:780px;
+      background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01));
+      border-radius:18px;
+      padding:36px;
+      box-shadow:0 10px 30px rgba(2,6,23,0.6);
+      border:1px solid rgba(255,255,255,0.04);
+      display:flex;
+      gap:28px;
+      align-items:center;
+    }
+    .brand {
+      display:flex;
+      align-items:center;
+      gap:18px;
+      flex:1;
+      min-width:0;
+    }
+    .logo {
+      width:84px;
+      height:84px;
+      border-radius:16px;
+      display:grid;
+      place-items:center;
+      background:linear-gradient(135deg,var(--accent1),var(--accent2));
+      box-shadow:0 6px 20px rgba(0,114,255,0.18), inset 0 -6px 18px rgba(255,255,255,0.06);
+      flex-shrink:0;
+    }
+    .logo svg {width:48px;height:48px}
+    .brand h1 {
+      margin:0;
+      font-size:1.6rem;
+      line-height:1.05;
+      letter-spacing:-0.02em;
+      color:#fff;
+    }
+    .brand p {
+      margin:6px 0 0;
+      color:var(--muted);
+      font-size:0.95rem;
+    }
+    .actions {
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+      align-items:flex-end;
+    }
+    .btn-primary {
+      appearance:none;
+      border:0;
+      padding:14px 22px;
+      border-radius:12px;
+      font-weight:600;
+      font-size:1rem;
+      cursor:pointer;
+      background:linear-gradient(90deg,var(--accent1),var(--accent2));
+      color:#041025;
+      box-shadow:0 8px 30px rgba(0,114,255,0.18);
+      transition:transform .12s ease, box-shadow .12s ease;
+      text-decoration:none;
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+    }
+    .btn-primary:active{transform:translateY(1px)}
+    .btn-primary:hover{box-shadow:0 14px 40px rgba(0,114,255,0.24);transform:translateY(-2px)}
+    .tag {
+      background:var(--glass);
+      padding:6px 10px;
+      border-radius:999px;
+      font-size:0.82rem;
+      color:var(--muted);
+      border:1px solid rgba(255,255,255,0.02);
+    }
+    @media (max-width:720px){
+      .card{flex-direction:column;align-items:stretch;padding:20px}
+      .actions{align-items:stretch;flex-direction:row;justify-content:space-between}
+      .brand{gap:12px}
+      .brand h1{font-size:1.2rem}
+      .logo{width:64px;height:64px}
+    }
+  </style>
+</head>
+<body>
+  <main class="card" role="main" aria-labelledby="app-title">
+    <div class="brand">
+      <div class="logo" aria-hidden="true">
+        <!-- Simple salary/coins icon -->
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <rect x="2" y="7" width="20" height="12" rx="2" fill="white" opacity="0.06"/>
+          <path d="M7 10.5c0 .828.895 1.5 2 1.5s2-.672 2-1.5S9.105 9 8 9s-1 0.672-1 1.5z" fill="white" opacity="0.14"/>
+          <path d="M12 13.2c1.2 0 2.2-.64 2.2-1.43S13.2 10.33 12 10.33 9.8 10.97 9.8 11.77 10.8 13.2 12 13.2z" fill="white"/>
+          <path d="M16 9v6" stroke="white" stroke-opacity="0.14" stroke-width="1.2" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <div>
+        <h1 id="app-title">MySalery Pro</h1>
+        <p>A simple app to calculate salary and overtime. Click below to view the Privacy Policy.</p>
+        <div style="margin-top:10px; display:flex; gap:8px; align-items:center;">
+          <span class="tag">Beta Version</span>
+          <span style="width:6px"></span>
+          <small style="color:var(--muted);font-size:0.85rem">Last Updated: July 26, 2024</small>
+        </div>
+      </div>
+    </div>
+    <div class="actions">
+      <a class="btn-primary" href="mysalarypro_privacy.html" id="privacy-link" role="button" aria-label="View Privacy Policy">
+        View Privacy Policy
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M5 12h14" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M12 5l7 7-7 7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
+    </div>
+  </main>
+  <script>
+    // Autofocus on the button for keyboard users
+    document.getElementById('privacy-link').focus();
+  </script>
+</body>
+</html>
